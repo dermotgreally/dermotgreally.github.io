@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!--
+  ============================================================
+  DERMOT GREALLY — PORTFOLIO PAGE
+  ============================================================
+  HOW TO DEPLOY TO GITHUB PAGES:
+
+  1. Create a GitHub account at github.com if you don't have one
+  2. Click the + icon top right → New repository
+  3. Name it exactly: yourusername.github.io
+     (replace "yourusername" with your actual GitHub username)
+  4. Set it to Public
+  5. Click "Create repository"
+  6. Click "uploading an existing file"
+  7. Drag and drop this index.html file
+  8. Click "Commit changes"
+  9. Go to Settings → Pages → Source: Deploy from branch → main
+  10. Your page will be live at: https://yourusername.github.io
+
+  To update the page later: edit this file, then re-upload it.
+  ============================================================
+-->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dermot Greally — AI & Data Go-To-Market Leader, APAC. 15+ years building cloud GTM across Microsoft, Siemens, AliCloud and AWS.">
+  <title>Dermot Greally</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── TOKENS ───────────────────────────────────────────── */
+    :root {
+      --bg:         #0D1117;
+      --surface:    #161B22;
+      --border:     #30363D;
+      --gold:       #C9A84C;
+      --gold-dim:   rgba(201,168,76,0.12);
+      --text:       #E6EDF3;
+      --text-muted: #8B949E;
+      --green:      #3FB950;
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-body:    'Inter', sans-serif;
+      --font-mono:    'Space Mono', monospace;
+    }
+
+    /* ── RESET ────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--gold); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    img { max-width: 100%; }
+
+    /* ── LAYOUT ───────────────────────────────────────────── */
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── NAV ──────────────────────────────────────────────── */
+    nav {
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-name {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--gold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-family: var(--font-body);
+      font-weight: 400;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover {
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    /* ── HERO ─────────────────────────────────────────────── */
+    .hero {
+      padding: 100px 0 80px;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .hero-label::before {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 1px;
+      background: var(--gold);
+    }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(42px, 7vw, 72px);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 28px;
+    }
+    .hero-tagline {
+      font-family: var(--font-mono);
+      font-size: clamp(15px, 2.5vw, 18px);
+      color: var(--text-muted);
+      margin-bottom: 48px;
+      min-height: 1.6em;
+    }
+    .cursor {
+      display: inline-block;
+      width: 2px;
+      height: 1.1em;
+      background: var(--gold);
+      vertical-align: text-bottom;
+      margin-left: 2px;
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0; }
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .meta-chip {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+    }
+    .meta-chip .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+    }
+
+    /* ── SECTION BASE ─────────────────────────────────────── */
+    section {
+      padding: 72px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    /* ── ABOUT ────────────────────────────────────────────── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+    }
+    .about-text p {
+      font-size: 17px;
+      line-height: 1.75;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+    .about-text p:last-child { margin-bottom: 0; }
+    .about-text strong { color: var(--text); font-weight: 500; }
+    .about-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 24px;
+    }
+    .stat-number {
+      font-family: var(--font-mono);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .stat-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* ── PROJECT ──────────────────────────────────────────── */
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+    }
+    .project-tag {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: var(--gold-dim);
+      border: 1px solid var(--gold);
+      border-radius: 4px;
+      padding: 3px 10px;
+      margin-bottom: 20px;
+    }
+    .project-card h3 {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+    .project-card p {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+      max-width: 600px;
+    }
+    .project-metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .metric {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      text-align: center;
+    }
+    .metric-value {
+      font-family: var(--font-mono);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .metric-label {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .project-insight {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--text-muted);
+      border-left: 2px solid var(--gold);
+      padding-left: 16px;
+      line-height: 1.7;
+    }
+    .project-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 28px;
+      font-size: 13px;
+      font-family: var(--font-mono);
+      color: var(--gold);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 10px 18px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .project-download:hover {
+      border-color: var(--gold);
+      background: var(--gold-dim);
+      text-decoration: none;
+    }
+    .project-download::before {
+      content: '↓';
+      font-size: 15px;
+    }
+
+    /* ── EXPERIENCE ───────────────────────────────────────── */
+    .experience-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .exp-item {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 32px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .exp-item:last-child { border-bottom: none; }
+    .exp-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .exp-company {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--gold);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .exp-period {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+    }
+    .exp-content h4 {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .exp-content p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* ── CONTACT ──────────────────────────────────────────── */
+    .contact-section {
+      padding: 72px 0;
+    }
+    .contact-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 32px;
+    }
+    .contact-left h2 {
+      font-family: var(--font-display);
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+    .contact-left p {
+      font-size: 15px;
+      color: var(--text-muted);
+      max-width: 360px;
+      line-height: 1.7;
+    }
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: flex-end;
+    }
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+    .contact-link:hover {
+      color: var(--gold);
+      text-decoration: none;
+    }
+    .contact-link-icon {
+      width: 32px;
+      height: 32px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      transition: border-color 0.2s;
+    }
+    .contact-link:hover .contact-link-icon {
+      border-color: var(--gold);
+    }
+
+    /* ── FOOTER ───────────────────────────────────────────── */
+    footer {
+      padding: 24px 0;
+      border-top: 1px solid var(--border);
+    }
+    footer .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-copy {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+    }
+    .footer-location {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .footer-location::before {
+      content: '◉';
+      color: var(--green);
+      font-size: 9px;
+    }
+
+    /* ── RESPONSIVE ───────────────────────────────────────── */
+    @media (max-width: 680px) {
+      .about-grid { grid-template-columns: 1fr; }
+      .project-metrics { grid-template-columns: repeat(2, 1fr); }
+      .exp-item { grid-template-columns: 1fr; gap: 8px; }
+      .contact-inner { flex-direction: column; align-items: flex-start; }
+      .contact-links { align-items: flex-start; }
+      nav .container { flex-direction: column; gap: 16px; align-items: flex-start; }
+      .nav-links { gap: 16px; flex-wrap: wrap; }
+    }
+
+    /* ── REDUCED MOTION ───────────────────────────────────── */
+    @media (prefers-reduced-motion: reduce) {
+      .cursor { animation: none; opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="container">
+      <span class="nav-name">Dermot Greally</span>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="container">
+      <div class="hero-label">AI &amp; Data Go-To-Market · APAC</div>
+      <h1>Dermot<br>Greally</h1>
+      <div class="hero-tagline">
+        <span id="typed-text"></span><span class="cursor"></span>
+      </div>
+      <div class="hero-meta">
+        <div class="meta-chip"><span class="dot"></span>Singapore</div>
+        <div class="meta-chip"><span class="dot"></span>AWS · APJ</div>
+        <div class="meta-chip"><span class="dot"></span>15+ years cloud GTM</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="section-eyebrow">About</div>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            I build the motion behind AI and cloud adoption across Asia-Pacific — the campaigns, the field plays, the partner mechanisms, and the executive conversations that turn market opportunity into pipeline.
+          </p>
+          <p>
+            At <strong>AWS</strong> I lead AI and Data GTM across ASEAN. Before that, <strong>Microsoft Azure</strong> across APAC, <strong>Siemens Industry X</strong> as founding APJ employee, and <strong>AliCloud</strong> where I built the China partnership that became Siemens' largest market globally within a year.
+          </p>
+          <p>
+            What connects those roles is the same discipline: understanding where a technology is genuinely disruptive, building the mechanisms that make it land at scale, and earning the trust of customers and field teams to carry the message.
+          </p>
+        </div>
+        <div class="about-stats">
+          <div class="stat-card">
+            <div class="stat-number">15+</div>
+            <div class="stat-label">Years cloud GTM · APAC &amp; Greater China</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">8K+</div>
+            <div class="stat-label">Customer engagements · ASEAN AI programmes</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">7</div>
+            <div class="stat-label">APJ Markets · ASEAN · ANZ · GCR · India · Japan · South Korea</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH -->
+  <section id="research">
+    <div class="container">
+      <div class="section-eyebrow">Applied Research</div>
+      <div class="project-card">
+        <div class="project-tag">Applied Research · 2026</div>
+        <h3>Agentic Decision Architecture — Signal, Filter, Act</h3>
+        <p>
+          An end-to-end agentic decision system built across a deliberately chosen stack of integrated tools — TradingView for signal detection, Excel for dataset validation and statistical analysis, Word for framework documentation and rule codification, and Saxo for execution. Each tool handles a specific layer of the decision pipeline: sense, validate, document, act. Claude provided synthesis and refinement across all layers — functioning as the orchestration layer connecting structured data, unstructured analysis, and actionable output. Built on 43,113 rows of TradingView NASDAQ data, the framework achieved a 53% signal confirmation rate across 143 validated instances — meaning it correctly identified and filtered out nearly half of all apparent signals as noise. A working proof-of-concept for the multi-source knowledge integration challenges that enterprise agentic AI deployments face at scale: signal quality, cross-tool context, decision discipline, and the rigorous separation of genuine insight from noise.
+        </p>
+        <div class="project-metrics">
+          <div class="metric">
+            <div class="metric-value">60</div>
+            <div class="metric-label">Days validated</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">143</div>
+            <div class="metric-label">Instances logged</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">53%</div>
+            <div class="metric-label">Signal confirmation</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">43K+</div>
+            <div class="metric-label">Rows of market data</div>
+          </div>
+        </div>
+        <div class="project-insight">
+          Building an agentic system yourself — rather than just advocating for one — changes how you explain it to customers. The three-criteria entry framework, the second-candle confirmation rule, and the VWAP slope exit logic are directly analogous to the signal-filter-action pipelines that enterprise agentic AI deployments run on.
+        </div>
+        <a href="INTC_Trading_Framework_v1.2.pdf" class="project-download" download>
+          Download Framework Document
+        </a>
+        <a href="VWAP_Decision_Framework_PineScript.pdf" class="project-download" download style="margin-top: 8px;">
+          Download Pine Script
+        </a>
+      </div>
+
+      <!-- Second research card -->
+      <div class="project-card" style="margin-top: 32px;">
+        <div class="project-tag">Opening Hour Analysis · 2026</div>
+        <h3>Signal vs Noise — Opening Hour Decision Framework</h3>
+        <p>
+          A structured analysis of how the first 60 minutes of an equity session establishes session character, generates the highest volume, and produces both the most compelling traps and the highest-conviction setups of the day. Three distinct opening scenarios are mapped — the opening spike trap, the flush-to-zone reversal, and the trend day — each requiring a different decision response. A pre-10:00 session classification framework determines whether to engage, stand down, or adjust target parameters accordingly. The core insight is that the opening hour produces the most visually compelling but technically invalid signals of the session — and that disciplined signal filtering, not pattern recognition alone, is what separates systematic decisions from reactive ones.
+        </p>
+        <div class="project-metrics">
+          <div class="metric">
+            <div class="metric-value">3</div>
+            <div class="metric-label">Opening scenarios mapped</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">5 min</div>
+            <div class="metric-label">No-trade window</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">10:00</div>
+            <div class="metric-label">Session classification deadline</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">$2.00+</div>
+            <div class="metric-label">Opening flush avg bounce</div>
+          </div>
+        </div>
+        <div class="project-insight">
+          The opening hour produces the most visually compelling but technically invalid setups on INTC. Pre-market RSI above 70, opening spike to +2SD VWAP, and institutional distribution into retail buyers are recurring patterns. Understanding what not to trade in the first 30 minutes is as important as knowing when to act.
+        </div>
+        <a href="Opening_Hour_Decision_Framework.pdf" class="project-download" download>
+          Download Opening Hour Framework
+        </a>
+        <a href="Opening_Hour_PineScript.pdf" class="project-download" download style="margin-top: 8px;">
+          Download Pine Script
+        </a>
+      </div>
+
+      <!-- Third research card -->
+      <div class="project-card" style="margin-top: 32px;">
+        <div class="project-tag">Applied Research · 2026</div>
+        <h3>VWAP Decision Framework — Pine Script Indicator Suite</h3>
+        <p>
+          A custom TradingView Pine Script v5 implementation of the VWAP-based decision framework — translating the validated three-criteria entry logic into a live analytical tool. Three indicator panels run simultaneously: VWAP slope (session character classification), VWAP percentage deviation (oversold/overbought positioning), and a combined entry/exit signal panel that fires only when all criteria are confirmed simultaneously. Four automated alerts cover entry signal, exit signal, zone entry, and steep VWAP decline conditions. The script is the operational layer of the research — turning documented methodology into a real-time decision support system.
+        </p>
+        <div class="project-metrics">
+          <div class="metric">
+            <div class="metric-value">3</div>
+            <div class="metric-label">Indicator panels</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">4</div>
+            <div class="metric-label">Automated alerts</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">v5</div>
+            <div class="metric-label">Pine Script version</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">3</div>
+            <div class="metric-label">Entry criteria validated</div>
+          </div>
+        </div>
+        <div class="project-insight">
+          The script demonstrates the full signal-to-action pipeline in code: sense (VWAP deviation), filter (RSI and zone conditions), validate (BEP confirmation), act (alert fires). The same architecture that underpins enterprise agentic AI deployments — implemented as a working TradingView indicator.
+        </div>
+        <a href="VWAP_Decision_Framework_PineScript.pdf" class="project-download" download>
+          Download Pine Script Document
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="container">
+      <div class="section-eyebrow">Experience</div>
+      <div class="experience-list">
+
+        <div class="exp-item">
+          <div class="exp-meta">
+            <span class="exp-company">AWS</span>
+            <span class="exp-period">Current</span>
+          </div>
+          <div class="exp-content">
+            <h4>AI &amp; Data GTM Lead, ASEAN</h4>
+            <p>Building and activating the AI and Data go-to-market motion across ASEAN markets. Field and partner enablement, programmatic campaigns, executive pipeline reviews. Exceeded pipeline targets by over 30%, reached 8,000+ customers.</p>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-meta">
+            <span class="exp-company">Microsoft</span>
+            <span class="exp-period">Prior</span>
+          </div>
+          <div class="exp-content">
+            <h4>Azure GTM, APAC</h4>
+            <p>Go-to-market and commercial leadership for Azure across Asia-Pacific. Built field activation programmes and partner plays across multiple market segments and geographies.</p>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-meta">
+            <span class="exp-company">Siemens</span>
+            <span class="exp-period">Prior</span>
+          </div>
+          <div class="exp-content">
+            <h4>Founding Employee, Industry X · APJ</h4>
+            <p>Founded the Asia-Pacific and Japan presence for Siemens Industry X. Built the AliCloud partnership in China from day one — China became Siemens' largest global market within a year.</p>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-meta">
+            <span class="exp-company">Microsoft</span>
+            <span class="exp-period">Earlier</span>
+          </div>
+          <div class="exp-content">
+            <h4>O365 GBB Senior Sales Specialist · UK</h4>
+            <p>Led Office 365 adoption across UK central and local government post FrontBridge acquisition. Worked with Microsoft Public Sector and National Tech Office to deliver UK G-Cloud and IL2 pan-government accreditation. Secured adoption within UK and Welsh Parliaments with public endorsement from the Director of ICT at the Houses of Parliament.</p>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-meta">
+            <span class="exp-company">FrontBridge</span>
+            <span class="exp-period">Startup · EMEA</span>
+          </div>
+          <div class="exp-content">
+            <h4>Sales Manager, Northern Europe</h4>
+            <p>Secure messaging startup — joined post-IBM/ISS acquisition alongside several ex-ISS colleagues. Led Sales and Business Development across Northern European Telco partners including Orange, BT, KPN and AT&amp;T. FrontBridge was acquired by Microsoft for $200M prior to IPO.</p>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-meta">
+            <span class="exp-company">ISS</span>
+            <span class="exp-period">Startup · UK</span>
+          </div>
+          <div class="exp-content">
+            <h4>UK ProServe Lead · Internet Security Systems</h4>
+            <p>Security startup where I led the UK consulting and penetration testing practice for ProServe engagements across Data Security, Privacy and Compliance. Key accounts included Lloyds (FinServ), T-Mobile (Telco), and Central Government security programmes. ISS was acquired by IBM for $1.2B.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact-section" style="border-bottom: none;">
+    <div class="container">
+      <div class="section-eyebrow">Contact</div>
+      <div class="contact-inner">
+        <div class="contact-left">
+          <h2>Let's talk.</h2>
+          <p>Available for conversations about AI and Data GTM, agentic AI strategy, and APAC market development.</p>
+        </div>
+        <div class="contact-links">
+          <a href="https://linkedin.com/in/dermotgreally" target="_blank" rel="noopener" class="contact-link">
+            <div class="contact-link-icon">in</div>
+            linkedin.com/in/dermotgreally
+          </a>
+          <a href="mailto:dermotgreally@outlook.com" class="contact-link">
+            <div class="contact-link-icon">@</div>
+            dermotgreally@outlook.com
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <span class="footer-copy">© 2026 Dermot Greally</span>
+      <span class="footer-location">Singapore, SG</span>
+    </div>
+  </footer>
+
+  <!-- TYPING ANIMATION -->
+  <script>
+    const phrases = [
+      "Building the motion. Not just the message.",
+      "AI GTM across ASEAN markets.",
+      "Turning agentic AI into pipeline."
+    ];
+
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let isPaused = false;
+    const el = document.getElementById('typed-text');
+
+    function type() {
+      const current = phrases[phraseIndex];
+
+      if (isPaused) {
+        isPaused = false;
+        isDeleting = true;
+        setTimeout(type, 800);
+        return;
+      }
+
+      if (!isDeleting) {
+        el.textContent = current.slice(0, charIndex + 1);
+        charIndex++;
+        if (charIndex === current.length) {
+          isPaused = true;
+          setTimeout(type, 2400);
+          return;
+        }
+        setTimeout(type, 45);
+      } else {
+        el.textContent = current.slice(0, charIndex - 1);
+        charIndex--;
+        if (charIndex === 0) {
+          isDeleting = false;
+          phraseIndex = (phraseIndex + 1) % phrases.length;
+          setTimeout(type, 400);
+          return;
+        }
+        setTimeout(type, 22);
+      }
+    }
+
+    // Start after a short delay
+    setTimeout(type, 600);
+  </script>
+
+</body>
+</html>
