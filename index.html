@@ -346,6 +346,9 @@
       content: '↓';
       font-size: 15px;
     }
+    .project-download.project-open::before {
+      content: '→';
+    }
 
     /* ── EXPERIENCE ───────────────────────────────────────── */
     .experience-list {
@@ -568,7 +571,40 @@
   <section id="research">
     <div class="container">
       <div class="section-eyebrow">Applied Research</div>
+      <!-- Holden Playbook card -->
       <div class="project-card">
+        <div class="project-tag">Sales Qualification · Built with Claude · 2026</div>
+        <h3>Holden Playbook — Deal Qualification, Rebuilt</h3>
+        <p>
+          My Holden Power Base Selling scorecard, rebuilt with Claude from a spreadsheet into a working app. Score an opportunity against Holden's four questions (can we add value, should we pursue, can we compete, are we aligned to win), then map every stakeholder's support and influence. The app separates what you know is weak from what you simply don't know yet, ranks the next best actions, and places each person on the power base map so you can see who can carry the deal and who can stop it. The worked example is a real, won competitive displacement against an incumbent cloud provider, fully anonymised. Every new deal starts from the same template.
+        </p>
+        <div class="project-metrics">
+          <div class="metric">
+            <div class="metric-value">4</div>
+            <div class="metric-label">Holden questions</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">25</div>
+            <div class="metric-label">Scored criteria</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">20</div>
+            <div class="metric-label">Statements per stakeholder</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">−14→1</div>
+            <div class="metric-label">Example forecast, review to latest</div>
+          </div>
+        </div>
+        <div class="project-insight">
+          Qualification is deciding where not to spend effort. In the example, every point of drag came from unknowns while every known answer was neutral or better, so the next move was discovery rather than discounting. The playbook makes that call visible.
+        </div>
+        <a href="holden-playbook.html" class="project-download project-open">
+          Open the Holden Playbook
+        </a>
+      </div>
+
+      <div class="project-card" style="margin-top: 32px;">
         <div class="project-tag">Applied Research · 2026</div>
         <h3>Agentic Decision Architecture — Signal, Filter, Act</h3>
         <p>
