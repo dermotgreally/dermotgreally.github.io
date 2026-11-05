@@ -349,6 +349,22 @@
     .project-download.project-open::before {
       content: '→';
     }
+    .project-shot {
+      display: block;
+      margin: 4px 0 8px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    .project-shot:hover { border-color: var(--gold); }
+    .project-shot img { display: block; width: 100%; height: auto; background: #fff; }
+    .project-shot-note {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-muted);
+      margin: 0 0 24px;
+    }
 
     /* ── EXPERIENCE ───────────────────────────────────────── */
     .experience-list {
@@ -571,8 +587,45 @@
   <section id="research">
     <div class="container">
       <div class="section-eyebrow">Applied Research</div>
-      <!-- Holden Playbook card -->
+      <!-- Cove Collection card -->
       <div class="project-card">
+        <div class="project-tag">Flagship · Built with Claude · Run by Claude Code · 2026</div>
+        <h3>Cove Collection — Month-End, One Button</h3>
+        <p>
+          The monthly vendor payout run for a Singapore consignment shop, built with Claude. What used to be a day of spreadsheet work is now one button on the owner's Mac: it turns the point-of-sale export and a hand-kept cash book into a ledger, a PDF sales report for each of around 40 vendors, an audit and drafted payout emails. On top sits a Claude Code layer: skills that run and review the month, a briefing file, and permissions that keep the agent away from the money. Code does the maths, Claude does the judgement, a human presses Send.
+        </p>
+        <a class="project-shot" href="cove-collection.html" aria-label="Read the Cove Collection build story">
+          <img src="cove-summary-top.png" width="2200" height="728" loading="lazy" alt="The month-end summary page: a banner saying the vendor emails are waiting in Gmail Drafts, with EPOS, cash, gross, commission and payable totals.">
+        </a>
+        <p class="project-shot-note">The summary page every run ends with. Illustrative figures.</p>
+        <div class="project-metrics">
+          <div class="metric">
+            <div class="metric-value">~40</div>
+            <div class="metric-label">Vendors a month</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">1</div>
+            <div class="metric-label">Button on a Mac</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">$0.00</div>
+            <div class="metric-label">Reconciles to the cent</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">0</div>
+            <div class="metric-label">Emails sent without a human</div>
+          </div>
+        </div>
+        <div class="project-insight">
+          The run doesn't just add up; it checks itself. In September it flagged five cash sales sitting in the September block but dated 2 June, a date typo that would have left those vendors unpaid. Catching that is the point.
+        </div>
+        <a href="cove-collection.html" class="project-download project-open">
+          Read the build story
+        </a>
+      </div>
+
+      <!-- Holden Playbook card -->
+      <div class="project-card" style="margin-top: 32px;">
         <div class="project-tag">Sales Qualification · Built with Claude · 2026</div>
         <h3>Holden Playbook — Deal Qualification, Rebuilt</h3>
         <p>
